@@ -1,3 +1,18 @@
+
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+});
+
+client.connect()
+  .then(() => console.log('Database connected'))
+  .catch(err => console.error('Connection error', err.stack));
+
+
+
+
+
 const employees = [
   {
     id: 1,
@@ -61,4 +76,4 @@ const employees = [
   },
 ];
 
-module.exports = employees;
+module.exports = { client, employees }; 

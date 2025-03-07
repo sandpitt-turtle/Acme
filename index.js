@@ -3,9 +3,20 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const pg = require('pg');
+require('dotenv').config();
 
+
+const client = 
+new pg.Client(process.env.DATABASE_URL 
+  || 'postgres://localhost/acme_project');
 
 const app = express();
+
+
+
+
+
 
 
 
@@ -25,6 +36,17 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
+client.connect()
+  .then(() => console.log('Connected to PostgreSQL'))
+  .catch(err => {
+    console.error('Database connection error', err);
+    process.exit(1); 
+  });
+
+
+
 /* set up intial hello world route */
 
 
@@ -38,10 +60,10 @@ app.get('/', (req, res) => {
 /* set up api route */
 
 
-app.get('/api/employees', async (req, res, next) => {
+app.get('/employees', async (req, res, next) => {
   try {
     const SQL = `
-      SELECT * from notes;
+      SELECT * from employees;
                 `
       const response = await client.query(SQL)
       res.send(response.rows)
