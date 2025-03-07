@@ -1,10 +1,13 @@
 /* import and initialize express app */
 
+const express =require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+
+
 const app = express();
 const PORT = 3000;
 
-const cors = require('cors');
-const morgan = require('morgan');
 
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
 /* morgan is a logging library that allows us to see the requests being made to the server */
@@ -20,6 +23,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* set up intial hello world route */
+
+
+
+
 
 /* set up api route */
 
