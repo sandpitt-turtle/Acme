@@ -1,12 +1,12 @@
 /* import and initialize express app */
 
-const express =require('express');
+const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 
 
 const app = express();
-const PORT = 3000;
+
 
 
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
@@ -35,4 +35,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.status(404).send("Sorry, can't find that!");
 });
+
+
+
 /* initialize server (listen) */
+
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
