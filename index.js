@@ -9,6 +9,9 @@ const app = express();
 
 
 
+
+
+
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
 /* morgan is a logging library that allows us to see the requests being made to the server */
 
@@ -29,6 +32,20 @@ app.use(express.urlencoded({ extended: true }));
 
 
 /* set up api route */
+
+
+app.get('/api/employees', async (req, res, next) => {
+  try {
+    const SQL = `
+      SELECT * from notes;
+                `
+      const response = await client.query(SQL)
+      res.send(response.rows)
+      } catch(ex) {
+        next(ex)
+
+      }
+  }  )
 
 
 /* our middleware won't capture 404 errors, so we're setting up a separate error handler for those*/
