@@ -9,10 +9,7 @@ client.connect()
   .then(() => console.log('Database connected'))
   .catch(err => console.error('Connection error', err.stack));
 
-
-
-
-
+  
 const employees = [
   {
     id: 1,
