@@ -10,10 +10,10 @@ const app = express();
 
 
 
-
-
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
 /* morgan is a logging library that allows us to see the requests being made to the server */
+
+
 
 /* set up express middleware */
 app.use(morgan('dev'));
@@ -28,7 +28,11 @@ app.use(express.urlencoded({ extended: true }));
 /* set up intial hello world route */
 
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 
+
+});
 
 
 /* set up api route */
@@ -52,6 +56,8 @@ app.get('/api/employees', async (req, res, next) => {
 app.use((req, res, next) => {
   res.status(404).send("Sorry, can't find that!");
 });
+
+
 
 
 
