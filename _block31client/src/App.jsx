@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import './index.css'
 
 function App() {
   const [employees, setEmployees] = useState([]); 

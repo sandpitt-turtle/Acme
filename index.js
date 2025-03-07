@@ -5,6 +5,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const pg = require('pg');
 require('dotenv').config();
+
+
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
 /* morgan is a logging library that allows us to see the requests being made to the server */
 
