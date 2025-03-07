@@ -1,6 +1,9 @@
 /* import and initialize express app */
 
+const app = express();
 const PORT = 3000;
+
+
 /* this middleware deals with CORS errors and allows the client on port 5173 to access the server */
 const cors = require('cors');
 /* morgan is a logging library that allows us to see the requests being made to the server */
